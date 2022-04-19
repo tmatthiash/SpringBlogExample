@@ -140,6 +140,7 @@ public class PostTest {
             .andExpect(status().isCreated())
             .andReturn();
 
+        // assert that the correct stuff is saved to the repository
         ArgumentCaptor<Post> arguments = ArgumentCaptor.forClass(Post.class);
         verify(repository).save(arguments.capture());
         assertEquals(1, arguments.getValue().getId());
